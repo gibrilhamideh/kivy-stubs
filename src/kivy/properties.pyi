@@ -97,3 +97,24 @@ class ReferenceListProperty(Property[tuple[Any, ...]]):
         *properties: Property[Any],
         **kwargs: Any,
     ) -> None: ...
+
+class ColorProperty(Property[list[float]]):
+    def __init__(
+        self,
+        defaultvalue: list[float] | tuple[float, ...] | str | None = None,
+        *,
+        rebind: bool = False,
+        allownone: bool = False,
+        **kwargs: Any,
+    ) -> None: ...
+
+class VariableListProperty(Property[list[float]]):
+    def __init__(
+        self,
+        defaultvalue: list[float] | tuple[float, ...] | None = None,
+        *,
+        length: int | None = None,
+        options: list[int] | tuple[int, ...] | None = None,
+        rebind: bool = False,
+        **kwargs: Any,
+    ) -> None: ...

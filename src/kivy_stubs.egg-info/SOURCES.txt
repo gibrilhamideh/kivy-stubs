@@ -1,5 +1,6 @@
 pyproject.toml
 src/kivy/__init__.pyi
+src/kivy/event.pyi
 src/kivy/properties.pyi
 src/kivy/uix/__init__.pyi
 src/kivy/uix/widget.pyi

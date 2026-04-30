@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kivy-stubs"
+version = "0.1.0"
+description = "Type stubs for Kivy"
+authors = [{ name = "Your Name" }]
+requires-python = ">=3.10"
+classifiers = [
+    "Typing :: Stubs Only",
+]
+
+# This tells type checkers this is a stub package
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"kivy" = ["**/*.pyi", "py.typed"]

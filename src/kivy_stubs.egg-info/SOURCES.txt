@@ -1,0 +1,9 @@
+pyproject.toml
+src/kivy/__init__.pyi
+src/kivy/properties.pyi
+src/kivy/uix/__init__.pyi
+src/kivy/uix/widget.pyi
+src/kivy_stubs.egg-info/PKG-INFO
+src/kivy_stubs.egg-info/SOURCES.txt
+src/kivy_stubs.egg-info/dependency_links.txt
+src/kivy_stubs.egg-info/top_level.txt

@@ -1,120 +1,121 @@
-from typing import Any, Generic, TypeVar
+from __future__ import annotations
 
-T = TypeVar("T")
+from typing import Any, Callable
 
-class Property(Generic[T]):
-    def __init__(
-        self,
-        defaultvalue: T | None = None,
+class Property:
+    def __new__(
+        cls,
+        defaultvalue: Any = None,
         *,
         rebind: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class ObjectProperty(Property[T], Generic[T]):
-    def __init__(
-        self,
-        defaultvalue: T | None = None,
+class ObjectProperty(Property):
+    def __new__(
+        cls,
+        defaultvalue: Any = None,
         *,
         rebind: bool = False,
         allownone: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class StringProperty(Property[str]):
-    def __init__(
-        self,
+class StringProperty(Property):
+    def __new__(
+        cls,
         defaultvalue: str = "",
         *,
         rebind: bool = False,
         allownone: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class NumericProperty(Property[float]):
-    def __init__(
-        self,
-        defaultvalue: float = 0,
+class NumericProperty(Property):
+    def __new__(
+        cls,
+        defaultvalue: int | float = 0,
         *,
         rebind: bool = False,
         allownone: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class BooleanProperty(Property[bool]):
-    def __init__(
-        self,
+class BooleanProperty(Property):
+    def __new__(
+        cls,
         defaultvalue: bool = False,
         *,
         rebind: bool = False,
         allownone: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class ListProperty(Property[list[Any]]):
-    def __init__(
-        self,
-        defaultvalue: list[Any] | None = None,
+class ListProperty(Property):
+    def __new__(
+        cls,
+        defaultvalue: list[Any] | tuple[Any, ...] | None = None,
         *,
         rebind: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class DictProperty(Property[dict[Any, Any]]):
-    def __init__(
-        self,
+class DictProperty(Property):
+    def __new__(
+        cls,
         defaultvalue: dict[Any, Any] | None = None,
         *,
         rebind: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class OptionProperty(Property[str]):
-    def __init__(
-        self,
-        defaultvalue: str | None = None,
+class OptionProperty(Property):
+    def __new__(
+        cls,
+        defaultvalue: Any = None,
         *,
-        options: list[str] | tuple[str, ...],
+        options: list[Any] | tuple[Any, ...],
         rebind: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class AliasProperty(Property[T], Generic[T]):
-    def __init__(
-        self,
-        getter: Any,
-        setter: Any | None = None,
+class AliasProperty(Property):
+    def __new__(
+        cls,
+        getter: Callable[..., Any],
+        setter: Callable[..., Any] | None = None,
         *,
         bind: list[str] | tuple[str, ...] | None = None,
         cache: bool = False,
         rebind: bool = False,
+        watch_before_use: bool = True,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class ReferenceListProperty(Property[tuple[Any, ...]]):
-    def __init__(
-        self,
-        *properties: Property[Any],
+class ReferenceListProperty(Property):
+    def __new__(
+        cls,
+        *properties: Any,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
 
-class ColorProperty(Property[list[float]]):
-    def __init__(
-        self,
-        defaultvalue: list[float] | tuple[float, ...] | str | None = None,
-        *,
-        rebind: bool = False,
-        allownone: bool = False,
-        **kwargs: Any,
-    ) -> None: ...
-
-class VariableListProperty(Property[list[float]]):
-    def __init__(
-        self,
-        defaultvalue: list[float] | tuple[float, ...] | None = None,
+class VariableListProperty(Property):
+    def __new__(
+        cls,
+        defaultvalue: list[Any] | tuple[Any, ...] | None = None,
         *,
         length: int | None = None,
         options: list[int] | tuple[int, ...] | None = None,
         rebind: bool = False,
         **kwargs: Any,
-    ) -> None: ...
+    ) -> Any: ...
+
+class ColorProperty(Property):
+    def __new__(
+        cls,
+        defaultvalue: list[float] | tuple[float, ...] | str | None = None,
+        *,
+        rebind: bool = False,
+        allownone: bool = False,
+        **kwargs: Any,
+    ) -> Any: ...

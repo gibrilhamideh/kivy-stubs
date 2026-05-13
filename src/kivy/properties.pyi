@@ -24,7 +24,7 @@ class ObjectProperty(Property):
 class StringProperty(Property):
     def __new__(
         cls,
-        defaultvalue: str = "",
+        defaultvalue: str | None = "",
         *,
         rebind: bool = False,
         allownone: bool = False,
@@ -34,7 +34,7 @@ class StringProperty(Property):
 class NumericProperty(Property):
     def __new__(
         cls,
-        defaultvalue: int | float = 0,
+        defaultvalue: int | float | None = 0,
         *,
         rebind: bool = False,
         allownone: bool = False,
@@ -44,7 +44,7 @@ class NumericProperty(Property):
 class BooleanProperty(Property):
     def __new__(
         cls,
-        defaultvalue: bool = False,
+        defaultvalue: bool | None = False,
         *,
         rebind: bool = False,
         allownone: bool = False,
@@ -115,6 +115,20 @@ class ColorProperty(Property):
         cls,
         defaultvalue: list[float] | tuple[float, ...] | str | None = None,
         *,
+        rebind: bool = False,
+        allownone: bool = False,
+        **kwargs: Any,
+    ) -> Any: ...
+
+class BoundedNumericProperty(NumericProperty):
+    def __new__(
+        cls,
+        defaultvalue: int | float | None = 0,
+        *,
+        min: int | float | None = None,
+        max: int | float | None = None,
+        errorvalue: int | float | None = None,
+        errorhandler: Callable[[Any], int | float] | None = None,
         rebind: bool = False,
         allownone: bool = False,
         **kwargs: Any,

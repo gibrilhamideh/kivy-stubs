@@ -27,15 +27,8 @@ class WidgetMetaclass(type):
     ) -> None: ...
 
 class Widget(EventDispatcher):
-    __events__: ClassVar[
-        tuple[
-            Literal["on_motion"],
-            Literal["on_touch_down"],
-            Literal["on_touch_move"],
-            Literal["on_touch_up"],
-            Literal["on_kv_post"],
-        ]
-    ]
+    __events__: ClassVar[tuple]
+
 
     # ------------------------------------------------------------
     # Basic geometry

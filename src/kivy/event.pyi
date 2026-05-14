@@ -2,6 +2,11 @@
 
 from typing import Any, Callable
 
+class ObjectWithUid:
+    uid: int
+
+    def __init__(self, **kwargs: Any) -> None: ...
+
 class EventDispatcher:
     def __init__(self, **kwargs: Any) -> None: ...
     def bind(self, **kwargs: Callable[..., Any]) -> None: ...

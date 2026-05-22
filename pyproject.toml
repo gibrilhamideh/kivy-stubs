@@ -12,9 +12,12 @@ classifiers = [
     "Typing :: Stubs Only",
 ]
 
-# This tells type checkers this is a stub package
+[tool.setuptools]
+package-dir = {"" = "src"}
+
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["kivy*"]
 
 [tool.setuptools.package-data]
 "kivy" = ["**/*.pyi", "py.typed"]

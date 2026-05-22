@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Callable, Iterator
+from typing import Any, Callable
 from weakref import ProxyType
 
 from kivy.event import ObjectWithUid
@@ -68,6 +68,8 @@ class RenderContext(Canvas):
     use_parent_frag_modelview: bool
 
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
+    def __setitem__(self, key: str, value: Any) -> None: ...
+    def __getitem__(self, key: str) -> Any: ...
 
 
 class Callback(Instruction):

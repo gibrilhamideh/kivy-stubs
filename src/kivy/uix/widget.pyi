@@ -87,6 +87,7 @@ class Widget(EventDispatcher):
     # Weak proxy to self.
     proxy_ref: Any
 
+    _disabled_count: int
     def __init__(self, **kwargs: Any) -> None: ...
     def __hash__(self) -> int: ...
 

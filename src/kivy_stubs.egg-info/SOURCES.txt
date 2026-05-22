@@ -3,7 +3,7 @@ src/kivy/__init__.pyi
 src/kivy/clock.pyi
 src/kivy/event.pyi
 src/kivy/properties.pyi
-src/kivy/graphics/__init__.py
+src/kivy/graphics/__init__.pyi
 src/kivy/graphics/boxshadow.pyi
 src/kivy/graphics/context_instructions.pyi
 src/kivy/graphics/fbo.pyi
@@ -12,6 +12,7 @@ src/kivy/graphics/instructions.pyi
 src/kivy/graphics/scissor_instructions.pyi
 src/kivy/graphics/stencil_instructions.pyi
 src/kivy/graphics/texture.pyi
+src/kivy/graphics/transformation.pyi
 src/kivy/graphics/vertex_instructions.pyi
 src/kivy/uix/__init__.pyi
 src/kivy/uix/widget.pyi

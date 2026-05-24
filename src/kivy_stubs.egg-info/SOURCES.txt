@@ -3,6 +3,7 @@ src/kivy/__init__.pyi
 src/kivy/clock.pyi
 src/kivy/event.pyi
 src/kivy/properties.pyi
+src/kivy/core/image/__init__.pyi
 src/kivy/graphics/__init__.pyi
 src/kivy/graphics/boxshadow.pyi
 src/kivy/graphics/context_instructions.pyi

@@ -1,12 +1,10 @@
 from __future__ import annotations
 
 from io import BytesIO
-from typing import Any, ClassVar, Iterable, overload, TYPE_CHECKING
+from typing import Any, ClassVar, Iterable, overload
 
 from kivy.event import EventDispatcher
-
-if TYPE_CHECKING:
-    from kivy.graphics.texture import Texture, TextureRegion
+from kivy.graphics.texture import Texture, TextureRegion
 
 
 class ImageData:

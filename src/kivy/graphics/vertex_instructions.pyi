@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 from typing import Any, Sequence
+from numpy.typing import NDArray
+import numpy as np
 
 from kivy.graphics.instructions import VertexInstruction
+
 
 
 class GraphicException(Exception):
@@ -69,16 +72,16 @@ class Bezier(Line):
 
 
 class Mesh(VertexInstruction):
-    vertices: Sequence[float]
-    indices: Sequence[int]
+    vertices: Sequence[float] | NDArray[np.float32]
+    indices: Sequence[int] | NDArray[np.uint16]
     mode: str
     fmt: Any
 
     def __init__(
         self,
         *,
-        vertices: Sequence[float],
-        indices: Sequence[int],
+        vertices: Sequence[float] | NDArray[np.float32],
+        indices: Sequence[int] | NDArray[np.uint16],
         mode: str = "triangles",
         **kwargs: Any,
     ) -> None: ...

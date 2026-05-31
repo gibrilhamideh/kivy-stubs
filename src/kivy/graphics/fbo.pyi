@@ -7,21 +7,22 @@ from kivy.graphics.instructions import RenderContext
 from kivy.graphics.texture import Texture
 
 
-ColorRGBA: TypeAlias = tuple[float, float, float, float]
+ClearColor: TypeAlias = tuple[float, float, float, float]
+PixelColor: TypeAlias = tuple[int, int, int, int]
 Size: TypeAlias = tuple[int, int]
 ReloadCallback: TypeAlias = Callable[["Fbo"], None]
 
 
 class Fbo(RenderContext):
     texture: Texture
-    clear_color: ColorRGBA
+    clear_color: ClearColor
     size: Size
     pixels: bytes
 
     def __init__(
         self,
         *args: Any,
-        clear_color: ColorRGBA = (0, 0, 0, 0),
+        clear_color: ClearColor = (0, 0, 0, 0),
         size: Size = (1024, 1024),
         push_viewport: bool = True,
         with_depthbuffer: bool = False,
@@ -40,7 +41,7 @@ class Fbo(RenderContext):
         self,
         wx: int,
         wy: int,
-    ) -> ColorRGBA: ...
+    ) -> PixelColor: ...
 
     def add_reload_observer(
         self,

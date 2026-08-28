@@ -15,6 +15,10 @@ SizeHint = tuple[float | None, float | None]
 PosHint = dict[str, float]
 MotionFilter = dict[str, list[Widget]]
 
+
+class _IdsDict(dict[str, Any]):
+    def __getattr__(self, name: str, /) -> Any: ...
+
 class WidgetException(Exception):
     pass
 
@@ -71,7 +75,7 @@ class Widget(EventDispatcher):
     size_hint_max_y: float | None
     size_hint_max: SizeHint
 
-    ids: dict[str, Any]
+    ids: _IdsDict
 
     # ------------------------------------------------------------
     # Graphics / state
